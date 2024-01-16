@@ -349,3 +349,215 @@ function multiTable(number) {
 
 console.log(multiTable(5));
 
+function getSize(width, height, depth) {
+  const volume = width * height * depth;
+  const area = [2 * (width * height + width * depth + height * depth)];
+  return area.concat(volume);
+}
+
+console.log(getSize(4, 2, 6));
+
+const feast = (beast, dish) => {
+  let lastBeastChar = beast.slice(-1).toLowerCase();
+  let lastDishChar = dish.slice(-1).toLowerCase();
+  let firstBeastChar = beast.slice(0, 1).toLowerCase();
+  let firstDishChar = dish.slice(0, 1).toLowerCase();
+  if (lastBeastChar === lastDishChar && firstBeastChar === firstDishChar) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+console.log(feast("great blue heron", "garlic naan"));
+
+const expressionMatter = (a, b, c) => {
+  let firstResult = a * (b + c);
+  let secondResult = a + b + c;
+  let thirdResult = a * b * c;
+  let fourResult = (a + b) * c;
+  const findMaxNumber = Math.max(firstResult, secondResult, thirdResult, fourResult);
+  return findMaxNumber;
+};
+
+console.log(expressionMatter(9, 1, 1));
+
+const calculate = (a, o, b) => {
+  let calculateResult;
+  if (o !== "*" && o !== "/" && o !== "+" && o !== "-" && o !== "w") {
+    return null;
+  }
+
+  if (o === "w" && b === 0) {
+    return null;
+  }
+  if (o === '/' && b === 0) {
+    return null;
+  }
+
+  if (o === "+") {
+    calculateResult = a + b;
+  } else if (o === "-") {
+    calculateResult = a - b;
+  } else if (o === "/") {
+    calculateResult = a / b;
+  } else if (o === "*") calculateResult = a * b;
+  return calculateResult;
+};
+
+const createPhoneNumber = (numbers) => {
+  let toStrings = numbers.join("");
+  let toFirstNumbers = `(${toStrings.slice(0, 3)})`;
+  let toSecondaryNumbers = `${toStrings.slice(3, 6)}-`;
+  let toThirdNumbers = toStrings.slice(6, 10);
+  let result = `${toFirstNumbers} ${toSecondaryNumbers}${toThirdNumbers}`;
+  return result;
+};
+
+console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
+
+const maskify = (cc) => {
+  return `${"#".repeat(Math.max(0, cc.length - 4))}${cc.slice(-4)}`;
+};
+
+console.log(maskify("4556364607935616"));
+
+function squareDigits(num) {
+  let numString = String(num);
+  let result = "";
+  for (let i = 0; i < numString.length; i++) {
+    let digit = Number(numString[i]);
+    result += (digit * digit).toString();
+  }
+  return Number(result);
+}
+
+console.log(squareDigits(9119));
+
+function getCount(str) {
+  const letters = "a,e,i,o,u";
+
+  let result = "";
+
+  for (let i = 0; i < str.length; i++) {
+    if (letters.includes(str[i])) {
+      result += str[i];
+    }
+  }
+  return result.length;
+}
+
+console.log(getCount("ababababa"));
+
+function betterThanAverage(classPoints, yourPoints) {
+  let result = classPoints.reduce((acc, item) => acc + item, 0);
+  let finalResult = result / classPoints.length;
+  if (finalResult > yourPoints) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+console.log(betterThanAverage([2, 3], 5));
+
+const isTriangle = (a, b, c) => {
+  if (a + b > c) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+console.log(isTriangle(3, 2, 4));
+
+function removeChar(str) {
+  return str.slice(1, -1);
+}
+
+console.log(removeChar("Roman"));
+
+function bonusTime(salary, bonus) {
+  if (bonus === true) {
+    return `\u00A3${salary * 10}`;
+  } else {
+    return `\u00A3${salary}`;
+  }
+}
+
+console.log(bonusTime(9900, false));
+
+function checkAlive (health) {
+  if (health <= 0) {
+    return false
+  } else  {
+   return true
+  }
+}
+
+console.log(checkAlive(0));
+
+function getRealFloor(n) {
+  let americanFloor = 13;
+
+  if (n < americanFloor && n > 0) {
+    return n - 1;
+  }
+  if (n > americanFloor) {
+    return n - 2;
+  }
+  if (n <= 0) {
+    return n;
+  }
+}
+
+console.log(getRealFloor(-2));
+function uefaEuro2016(teams, scores) {
+  if (scores[0] > scores[1]) {
+    return `At match ${teams[0]} - ${teams[1]}, ${teams[0]} won!`;
+  }
+  if (scores[1] > scores[0]) {
+    return `At match ${teams[0]} - ${teams[1]}, ${teams[1]} won!`;
+  }
+
+  if (scores[0] === scores[1]) {
+    return `At match ${teams[0]} - ${teams[1]}, teams played draw.`;
+  }
+}
+
+console.log(uefaEuro2016(["Portugal", "Iceland"], [0, 0]));
+
+function countPositivesSumNegatives(input) {
+  if (input == null  || input.length === 0) {
+    return [];
+  }
+  let positiveNumbers = [];
+  let negativeNumbers = [];
+  for (let number of input) {
+    if (number > 0) {
+      positiveNumbers.push(number);
+    } else if (number < 0) {
+      negativeNumbers.push(number);
+    }
+  }
+  let positiveNumbersElements = positiveNumbers.length;
+  let negativeNumbersSum = negativeNumbers.reduce(
+    (acc, number) => acc + number,
+    0
+  );
+  return [positiveNumbersElements, negativeNumbersSum];
+}
+
+// console.log(countPositivesSumNegatives([1, 2, 3, 4, 5, -1, -2, -3, -4, -5]));
+
+function findAverage(array) {
+  // your code here
+  if (array.length === 0) {
+    return 0;
+  }
+  let result = array.reduce((acc, item) => acc + item, 0);
+  return result / array.length;
+}
+
+console.log(findAverage([1, 2, 3]));
+
