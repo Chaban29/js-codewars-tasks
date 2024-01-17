@@ -1,4 +1,4 @@
-"use strict";
+ "use strict";
 
 const cannonsReady = (gunners) => {
   for (let gunner in gunners) {
@@ -560,4 +560,97 @@ function findAverage(array) {
 }
 
 console.log(findAverage([1, 2, 3]));
+
+function DNAStrand(dna) {
+  const resultString = dna.replace(/[ATGC]/g, (match) => {
+    switch (match) {
+      case "A":
+        return "T";
+        break;
+      case "T":
+        return "A";
+        break;
+      case "G":
+        return "C";
+        break;
+      case "C":
+        return "G";
+        break;
+    }
+  });
+  return resultString;
+}
+
+console.log(DNAStrand("GTAT"));
+
+var say = function (string1) {
+  return function (string2) {
+    console.log(string1 + " " + string2);
+  };
+};
+
+say("Hello")("World");
+
+function findShort(words) {
+  let toArr = words.split(" ");
+  let result = toArr.reduce((a, c) => (c.length < a.length ? c : a));
+  return result.length;
+}
+
+console.log(findShort("Hi Roman"));
+
+const abbrevName = (firstName) => {
+  const toArray = firstName.split(" ");
+  let thefirstName = "";
+  for (let arrName of toArray) {
+    thefirstName += `.${arrName[0]}`;
+  }
+  return thefirstName.toUpperCase().slice(1);
+};
+
+console.log(abbrevName("sam harris"));
+
+const isReallyNaN = (val) => {
+  return val !== val;
+};
+
+console.log(isReallyNaN("37"));
+
+const correct = (str) => {
+  if (str) {
+    str = str.replace(/5/g, "S");
+  }
+  if (str.includes("0")) {
+    str = str.replace(/0/g, "O");
+  }
+  if (str.includes("1")) {
+    str = str.replace(/1/g, "I");
+  }
+
+  return str;
+};
+
+console.log(correct("501"));
+
+function howManyDalmatians(number) {
+  let dogs = [
+    "Hardly any",
+    "More than a handful!",
+    "Woah that's a lot of dogs!",
+    "101 DALMATIANS!!!",
+  ];
+
+  const respond =
+    number <= 10
+      ? dogs[0]
+      : number <= 50
+      ? dogs[1]
+      : number > 100
+      ? dogs[3]
+      : dogs[2];
+
+  return respond;
+}
+
+console.log(howManyDalmatians(100));
 
