@@ -1,4 +1,4 @@
- "use strict";
+'use strict';
 
 const cannonsReady = (gunners) => {
   for (let gunner in gunners) {
@@ -654,3 +654,162 @@ function howManyDalmatians(number) {
 
 console.log(howManyDalmatians(100));
 
+const uniqueInOrder = (iterable) => {
+  let totalResultArray = [];
+  let last;
+
+  for (let i = 0; i < iterable.length; i++) {
+    if (iterable[i] !== last) {
+      totalResultArray.push((last = iterable[i]));
+    }
+  }
+  console.log(last, totalResultArray);
+  return totalResultArray;
+};
+
+console.log(uniqueInOrder('AAAABBBCCDAABBB'));
+
+function countSheeps(sheep) {
+  for (let i = sheep.length - 1; i >= 0; i--) {
+    if (sheep[i] === undefined) {
+      sheep.splice(i, 1);
+    }
+  }
+  for (let i = sheep.length - 1; i >= 0; i--) {
+    if (sheep[i] === false) {
+      sheep.splice(i, 1);
+    }
+  }
+  for (let i = sheep.length - 1; i >= 0; i--) {
+    if (sheep[i] === null) {
+      sheep.splice(i, 1);
+    }
+  }
+  return sheep.reduce((acc, sh) => acc + sh, 0);
+}
+
+console.log(countSheeps([undefined]));
+
+function reverseLetter(str) {
+  //coding and coding..
+  let pattern = /[^a-zA]/g;
+
+  let res = str.replace(pattern, '');
+  let reverseResult = '';
+  for (let i = 0; i < res.length; i += 1) {
+    reverseResult = res[i] + reverseResult;
+  }
+  return reverseResult;
+}
+
+console.log(reverseLetter('ab23482948290c'));
+
+function longest(s1, s2) {
+  const firstLetters = new Set(s1.split(''));
+  const secondaryLetters = new Set(s2.split(''));
+  const result = Array.from(firstLetters).concat(Array.from(secondaryLetters)).sort().join('');
+  return Array.from((new Set(result))).join('');
+}
+
+console.log(longest('xyaabbbccccdefww', 'kljdehfhjkfhfkhahk'));
+
+function addLength(str) {
+  let toArr = str.split(' ');
+  let wordsString = [];
+  for (let i = 0; i < toArr.length; i += 1) {
+    wordsString.push(toArr[i] + ' ' + toArr[i].length);
+  }
+  return wordsString;
+}
+
+console.log(addLength('Roman Chaban Igor'));
+
+function generateRange(min, max, step) {
+  let res = [];
+  for (let i = min; i <= max; i += step) {
+    res.push(i);
+  }
+  return res;
+}
+
+console.log(generateRange(2, 10, 2));
+
+const formatMoney = (cash) => {
+  return `$${cash.toFixed(2)}`;
+};
+
+console.log(formatMoney(3.1));
+
+function solution(string) {
+  let result = '';
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] === string[i].toUpperCase()) {
+      result += ' ' + string[i];
+    } else {
+      result += string[i];
+    }
+  }
+  return result;
+}
+
+console.log(solution('camelCasing'));
+
+const oddOrEven = (arr) => {
+  const calculateArrayElements = arr.reduce((acc, item) => acc + item, 0);
+  if (calculateArrayElements == [] || calculateArrayElements.length === 1) {
+    return 'even';
+  }
+  return Math.abs(calculateArrayElements) % 2 === 1 ? 'odd' : 'even';
+};
+
+console.log(oddOrEven([1]));
+
+const between = (a, b) => {
+  let result = [];
+  for (let i = a; i <= b; i++) {
+    result.push(i);
+  }
+  return result;
+};
+
+console.log(between(1, 4));
+
+function isPalindrome(x) {
+  let palindrome = '';
+  for (let i = 0; i < x.length; i++) {
+    palindrome = x[i] + palindrome;
+  }
+  if (x.toLowerCase().includes(palindrome.toLowerCase())) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log(isPalindrome('rac'));
+
+const capitals = (word) => {
+  let result = [];
+  for (let i = 0; i < word.length; i++) {
+    if (word[i].includes(word[i].toUpperCase())) {
+      result.push(word.indexOf(word[i]));
+    }
+  }
+  return result;
+};
+
+console.log(capitals('CodEWaRs'));
+
+function shorter_reverse_longer(a, b) {
+  let result = '';
+  let reverseWord = '';
+  for (let i = 0; i < a.length; i++) {
+    reverseWord += a[i] + reverseWord;
+  }
+  if (a.length > b.length) {
+    result = b + reverseWord + a + b;
+  }
+  return result;
+}
+
+console.log(shorter_reverse_longer('first', 'abcde'));
