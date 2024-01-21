@@ -812,4 +812,113 @@ function shorter_reverse_longer(a, b) {
   return result;
 }
 
-console.log(shorter_reverse_longer('first', 'abcde'));
+// console.log(shorter_reverse_longer('first', 'abcde'));
+
+function lowestTemp(t) {
+  let numbers = String(t).split(' ').map(Number);
+  return Math.min.apply(null, numbers);
+}
+
+console.log(lowestTemp('-1 50 -4 20 22 -7 0 10 -8'));
+
+function removeExclamationMarks(s) {
+
+  return s.replace(/!/g, '')
+
+}
+
+function domainName(url) {
+  url = url.replace('https://', '');
+  url = url.replace('http://', '');
+  url = url.replace('www.', '');
+
+  return url.split('.')[0];
+}
+
+console.log(domainName('http://google.co.jp'));
+
+function getChar(c){
+ return String.fromCodePoint(c);
+}
+
+console.log(getChar(60));
+
+const count = (string) => {
+  if (string === '') {
+    return {};
+  }
+
+  let objectLetters = {};
+
+  for (let i = 0; i < string.length; i++) {
+    let char = string[i];
+    if (objectLetters.hasOwnProperty(char[i])) {
+      objectLetters[string[i]] += 1;
+    }
+    objectLetters[string[i]] = 1;
+  }
+  return objectLetters;
+};
+
+console.log(count('ABC'));
+
+function isPangram(string){
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+ const uniqueLetters = new Set(string.toLowerCase().replace(/[^a-z]/g, ''));
+ console.log(uniqueLetters);
+ return alphabet.split('').every(letter => uniqueLetters.has(letter));
+
+}
+
+// console.log(isPangram("The quick brown fox jumps over the lazy dog."));
+
+function shorterReverseLonger(a, b) {
+  let shortestWord = a.length >= b.length ? b : a;
+  let longestWord = a.length < b.length ? b : a;
+  let reversedWord = '';
+  for (let i = 0; i < longestWord.length; i++) {
+    reversedWord = longestWord[i] + reversedWord;
+  }
+  return shortestWord + reversedWord + shortestWord;
+}
+
+console.log(shorterReverseLonger('first', 'abcde'));
+
+function finalGrade(exam, projects) {
+  return exam > 90 || projects > 10
+    ? 100
+    : exam > 75 && projects >= 5
+    ? 90
+    : exam > 50 && projects >= 2
+    ? 75
+    : 0;
+}
+
+console.log(finalGrade(85, 5));
+
+function sortArray(array) {
+  let isOdd = array.filter((num) => num % 2 === 1);
+  isOdd.sort((a, b) => Math.abs(a) - Math.abs(b));
+  for (let i = 0, j = 0; i < array.length; i++) {
+    if (array[i] % 2 === 1) {
+      array[i] = isOdd[j];
+      j++;
+    } else {
+    }
+  }
+  return array;
+}
+
+console.log(
+  sortArray([
+    17, 16, -22, -45, 46, -36, -7, -44, 25, -3, -44, 46, 31, 44, 45, -2, -22,
+    38, -29, -1, -22, 48, 2, -40,
+  ])
+);
+
+function replace(s){
+  //coding and coding....
+  return s.replace(/['a,e,i,o,u,A,E,I,O,U']/gi, '!');
+}
+
+console.log(replace('HI!'));
