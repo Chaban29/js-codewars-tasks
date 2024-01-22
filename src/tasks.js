@@ -922,3 +922,184 @@ function replace(s){
 }
 
 console.log(replace('HI!'));
+
+function flickSwitch(arr) {
+  let result = [];
+  let toggle = true;
+  for (let item of arr) {
+    if (item !== 'flick') {
+      result.push(toggle);
+    }
+    if (item === 'flick' || item === true) {
+      toggle = !toggle;
+      result.push(toggle);
+    }
+  }
+  return result;
+}
+
+console.log(flickSwitch(['bicycle', 'jarmony', 'flick', 'sheep', 'flick']));
+
+function howManyLightsabersDoYouOwn(name){
+  return name === 'Zach' ? 18 : 0;
+}
+
+function Sleigh(name) {
+  if (name === 'Santa Claus') {
+    return 'Ho Ho Ho!';
+  } else {
+    return false;
+  }
+}
+
+console.log(Sleigh('Santa'));
+
+function mouthSize(animal) {
+  return animal.toLowerCase() === 'alligator' ? 'small' : 'wide';
+}
+
+function pipeFix(numbers) {
+  let result = [];
+  let min = numbers[0];
+  let max = numbers[numbers.length - 1];
+  for (let i = min; i <= max; i++) {
+    result.push(i);
+  }
+  return result;
+}
+
+console.log(pipeFix([-1, 4]));
+
+function hexToDec(hexString) {
+  return parseInt(hexString, 16);
+}
+
+console.log(hexToDec('FF'));
+
+const findAverage = function (numbers) {
+  let totalNums = 0;
+  for (let num of numbers) {
+    totalNums += num;
+  }
+  return totalNums / numbers.length;
+};
+
+console.log(findAverage([1, 3, 5, 7]));
+
+function reverse(string) {
+  let toArr = string.split(' ');
+  return toArr.reverse().join(' ');
+}
+
+console.log(reverse('Hello World!'));
+
+function combat(health, damage) {
+  let totalHealth = health - damage;
+  return health > damage ? totalHealth : 0;
+}
+console.log(combat(20, 30));
+
+function animal(obj) {
+  return `This ${obj.color} ${obj.name} has ${obj.legs} legs`;
+}
+
+console.log(animal({ name: '1', legs: 4, color: 'white' }));
+
+const factorial = (n) => {
+  if (n < 0) {
+    return undefined;
+  } else if (n === 0 || n === 1) {
+    return 1;
+  }
+  return n * factorial(n - 1);
+};
+
+console.log(factorial(4));
+
+function flattenAndSort(array) {
+  let toAllArrayItems = array.flat();
+  return toAllArrayItems.sort((a, b) => a - b);
+}
+
+console.log(flattenAndSort([[1, 3, 5], [100], [2, 4, 6]]));
+
+function rainAmount(mm){
+  if (mm < 40) {
+       return `You need to give your plant ${40 - mm} mm of water`;
+  } else {
+       return "Your plant has had more than enough water for today!"
+  };
+}
+
+console.log(rainAmount(100));
+
+function apple(x) {
+  if (Math.pow(x, 2) > 1000) {
+    return "I's hotter than the sun!!";
+  } else {
+    return 'Help yourself to a honeycomb Yorkie for the glovebox.';
+  }
+}
+
+console.log(apple(50));
+
+function rowWeights(array) {
+  let firstSum = 0;
+  let secondSum = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (i % 2 === 0) {
+      firstSum += array[i];
+    } else {
+      secondSum += array[i];
+    }
+  }
+  return [firstSum, secondSum];
+}
+
+console.log(rowWeights([50, 60, 70, 80]));
+
+function sortByLength (array) {
+  return array.sort((a, b) => a.length - b.length);
+  }
+
+function sumOfDifferences(arr) {
+  let result = 0;
+  let sortedArr = arr.sort((a, b) => b - a);
+
+  for (let i = 0; i < sortedArr.length - 1; i++) {
+    result += sortedArr[i] - sortedArr[i + 1];
+  }
+
+  return result;
+}
+
+console.log(sumOfDifferences([-3, -2, -1]));
+
+function minValue(values) {
+  let toNotDublicate = new Set(values);
+  let toSortedValues = Array.from(toNotDublicate).sort((a, b) => a - b);
+  return Number(toSortedValues.join(''));
+}
+
+console.log(minValue([5,2,6]));
+
+function gooseFilter(birds) {
+  var geese = ['African', 'Roman Tufted', 'Toulouse', 'Pilgrim', 'Steinbacher'];
+
+  return birds.filter((bird) => !geese.includes(bird));
+}
+
+console.log(
+  gooseFilter([
+    'Mallard',
+    'Hook Bill',
+    'African',
+    'Crested',
+    'Pilgrim',
+    'Toulouse',
+    'Blue Swedish',
+  ])
+);
+
+
+
