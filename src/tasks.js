@@ -1101,5 +1101,62 @@ console.log(
   ])
 );
 
+function spEng(sentence) {
+  //write your code here
+
+  if (sentence.toLowerCase().includes('English'.toLowerCase())) {
+    return true;
+  } else {
+    return false;
+  }
+}
+console.log(spEng('english'))
+
+const reverseWords = (str) => {
+  let result = '';
+  for (let i = 0; i < str.length; i++) {
+    result = str[i] + result;
+  }
+  return result.split(' ').reverse().join(' ');
+};
+
+console.log(reverseWords('This is an example!'));
+
+function factorial(n) {
+  if (n < 0 || n > 12) {
+    return 'RangeError';
+  }
+  return n ? n * factorial(n - 1) : 1;
+}
+
+console.log(factorial(1));
+
+function largestPairSum (numbers) {
+    let toSorted = numbers.toSorted((a, b) => b - a);
+    return +toSorted.slice(0,1) + +toSorted.slice(1,2);
+}
+
+console.log(largestPairSum([99, 2, 2, 23, 19]));
+
+function binToDec(bin) {
+  return parseInt(bin, 2);
+}
+
+function fakeBin(arr) {
+  let toZeros = arr.replace(/[0-4]/g, '0');
+  return toZeros.replace(/[5-9]|10/g, '1');
+}
+
+function usdcny(usd) {
+  let oneCNY = 6.75;
+  let result = usd * oneCNY;
+  return `${result.toFixed(2)} Chinese Yuan`;
+}
+
+console.log(usdcny(1062));
+
+
+
+
 
 
